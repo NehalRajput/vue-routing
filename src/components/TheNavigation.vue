@@ -1,14 +1,19 @@
 <template>
   <div id="nav">
-  <router-link id="logo" to="/">Travel App</router-link>
-    <router-link
+    <AppLink id="logo" to="/">Vue School Travel App</AppLink>
+    <AppLink
+  
         v-for="destination in destinations"
         :key="destination.id"
         :to="{name: 'destination.show', params:{id: destination.id, slug: destination.slug}}"
       >
         {{ destination.name }}
-      </router-link>
-      <router-link :to="{name: 'protected'}">Dashboard</router-link>
+</AppLink>
+<AppLink :to="{name: 'protected'}">Dashboard</AppLink>
+<AppLink to="https://theuselessweb.com" target="_blank" style="color: hotpink; font-weight: bold;">
+  🌈✨ Take Me Somewhere Weird!
+</AppLink>
+  
   </div>
 </template>
 <script>
