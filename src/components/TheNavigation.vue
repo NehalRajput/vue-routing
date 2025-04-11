@@ -1,5 +1,4 @@
 
-
 <template>
   <div id="nav">
   <router-link id="logo" to="/">Travel App</router-link>
