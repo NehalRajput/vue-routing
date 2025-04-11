@@ -1,9 +1,10 @@
 
+
 import { createRouter , createWebHistory} from 'vue-router'
 
 const routes = [
   {
-    path: '/destination/:id/:experienceSlug',
+    path: '/experience/:id/:experienceSlug',
     name: 'experience.show',
     component: () => import('@/views/ExperienceShow.vue'),
     props: route => ({ ...route.params, id: parseInt(route.params.id) })
