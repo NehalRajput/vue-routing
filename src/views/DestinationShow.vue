@@ -1,7 +1,5 @@
 <template>
   <div>
-
- 
   <section v-if="destination" class="destination">
     <h1>{{ destination.name }}</h1>
     <GoBack/>
@@ -9,8 +7,11 @@
     <div class="destination-details">
       <img :src="`/images/${destination.image}`" :alt="destination.name">
       <p>{{ destination.description }}</p>
+      
     </div>
+  
   </section>
+
 
   <section class="experiences">
 
