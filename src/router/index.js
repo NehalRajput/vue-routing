@@ -1,19 +1,28 @@
-import { createRouter , createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import sourceData from '@/data.json'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/Home.vue')
+    component: () => import('@/views/Home.vue'),
+    alias: '/home'
   },
   {
     path: '/protected',
     name: 'protected',
-    component: () => import('@/views/Protected.vue'),
+    components: {
+      default: () => import('@/views/Protected.vue'),
+      LeftSidebar: () => import('@/components/LeftSidebar.vue')
+    },
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/example/:id(\\d+)?',
+    name: 'example',
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/login',
@@ -23,8 +32,11 @@ const routes = [
   {
     path: '/invoices',
     name: 'invoices',
-    component: ()=> import('@/views/Invoices.vue'),
-    meta:{
+    components: {
+      default: () => import('@/views/Invoices.vue'),
+      LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+    },
+    meta: {
       requiresAuth: true,
     }
   },
@@ -72,10 +84,12 @@ const router = createRouter({
   }
 })
 
-
 router.beforeEach((to, from) => {
   if (to.meta.requiresAuth && !window.user) {
-    return { name: 'login' ,  query: { redirect: to.fullPath } }
+    return {
+      name: 'login',
+      query: { redirect: to.fullPath }
+    }
   }
 })
 

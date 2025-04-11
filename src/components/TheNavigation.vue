@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <AppLink id="logo" to="/">Vue School Travel App</AppLink>
+    <AppLink id="logo" to="/">Travel App</AppLink>
     <AppLink
   
         v-for="destination in destinations"
