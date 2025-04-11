@@ -1,4 +1,7 @@
 <template>
+  <div>
+
+ 
   <section v-if="destination" class="destination">
     <h1>{{ destination.name }}</h1>
     <GoBack/>
@@ -25,11 +28,13 @@
 
   </section>
 
+</div>
 </template>
 <script>
 import sourceData from '@/data.json'
 import ExperienceCard from '@/components/ExperienceCard.vue'
 import GoBack from '@/components/GoBack.vue'
+
 export default {
 
   components: { ExperienceCard, GoBack },

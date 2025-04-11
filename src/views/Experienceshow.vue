@@ -1,10 +1,14 @@
 
 <template>
+  <div>
+
+
   <section>
     <h1>{{ experience.name }}</h1>
     <img :src="`/images/${experience.image}`" :alt="experience.name">
     <p>{{ experience.description }}</p>
   </section>
+</div>
 
   <div class="experiences">
     <h2>Top Experiences in {{ destination.name }}</h2>
